@@ -56,10 +56,10 @@ function displayIssues(issues) {
 
         // set issue  priority color 
         let priorityClass = "";
-        if (issue.priority === "HIGH") {
+        if (issue.priority === "high") {
             priorityClass = "bg-red-100 text-red-500";
         }
-        else if (issue.priority === "MEDIUM") {
+        else if (issue.priority === "medium") {
             priorityClass = "bg-yellow-100 text-yellow-600";
         }
         else {
@@ -75,9 +75,9 @@ function displayIssues(issues) {
     <img src="./assets/open-status.png" class="w-4">
   </div>
 
-  <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-500">
-    ${issue.priority}
-  </span>
+  <span class="px-3 py-1 text-xs rounded-full ${priorityClass}">
+  ${issue.priority}
+</span>
 
 </div>
 
