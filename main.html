@@ -38,18 +38,19 @@
 
             <div class="flex flex-wrap gap-3">
 
-                <button id="allTab" class="w-32 h-10 rounded-md text-white flex items-center justify-center"
+                <button id="allTab"
+                    class="w-32 h-10 rounded-md text-white flex items-center justify-center cursor-pointer"
                     style="background:#4A00FF;">
                     All
                 </button>
 
                 <button id="openTab"
-                    class="w-32 h-10 rounded-md border border-gray-300 text-gray-600 flex items-center justify-center">
+                    class="w-32 h-10 rounded-md border border-gray-300 text-gray-600 flex items-center justify-center cursor-pointer">
                     Open
                 </button>
 
                 <button id="closedTab"
-                    class="w-32 h-10 rounded-md border border-gray-300 text-gray-600 flex items-center justify-center">
+                    class="w-32 h-10 rounded-md border border-gray-300 text-gray-600 flex items-center justify-center cursor-pointer">
                     Closed
                 </button>
 
@@ -73,7 +74,7 @@
                 </div>
 
                 <div>
-                    <h2 class="font-semibold text-lg">50 Issues</h2>
+                    <h2 id="issueCount" class="font-semibold text-lg">0 Issues</h2>
                     <p class="text-gray-500 text-sm">Track and manage your project issues</p>
                 </div>
 
@@ -102,6 +103,43 @@
     <!-- issue container -->
     <div id="issuesContainer" class="max-w-6xl mx-auto mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
     </div>
+
+    <!-- modal -->
+    <dialog id="issueModal" class="modal">
+        <div class="modal-box max-w-2xl">
+
+            <h3 id="modalTitle" class="text-2xl font-bold mb-2"></h3>
+
+            <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
+                <span id="modalStatus" class="px-3 py-1 text-xs rounded-full bg-green-500 text-white"></span>
+                <span>•</span>
+                <span id="modalAuthor"></span>
+                <span>•</span>
+                <span id="modalDate"></span>
+            </div>
+
+            <div id="modalLabels" class="flex gap-2 mb-4"></div>
+
+            <p id="modalDescription" class="text-gray-600 mb-6"></p>
+
+            <div class="bg-gray-100 rounded-lg p-4 flex justify-between items-center">
+                <div>
+                    <p class="text-sm text-gray-500">Assignee:</p>
+                    <p id="modalAssignee" class="font-semibold"></p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-gray-500">Priority:</p>
+                    <span id="modalPriority" class="px-3 py-1 text-xs rounded-full"></span>
+                </div>
+            </div>
+
+            <div class="modal-action">
+                <button class="btn btn-primary" onclick="issueModal.close()">Close</button>
+            </div>
+
+        </div>
+    </dialog>
 
     <script src="script.js"></script>
 
