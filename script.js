@@ -260,16 +260,21 @@ function openIssueModal(issue) {
 
 }
 
-if (searchInput) {
+if(searchInput){
 
-  searchInput.addEventListener("input", function () {
+  searchInput.addEventListener("keydown", function(event){
 
-    const query = searchInput.value.trim();
+    if(event.key === "Enter"){
 
-    if (query === "") {
-      displayIssues(allIssues);
-    } else {
-      searchIssues(query);
+      const query = searchInput.value;
+
+      if(query === ""){
+        displayIssues(allIssues);
+      }
+      else{
+        searchIssues(query);
+      }
+
     }
 
   });
