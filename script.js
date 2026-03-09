@@ -36,14 +36,6 @@ async function loadIssues() {
 
 }
 
-async function loadIssues() {
-
-    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
-    const data = await res.json();
-
-    displayIssues(data.data);
-
-}
 
 function displayIssues(issues) {
 
@@ -62,6 +54,19 @@ function displayIssues(issues) {
             card.classList.add("border-purple-500");
         }
 
+        // set issue  priority color 
+        let priorityClass = "";
+        if (issue.priority === "HIGH") {
+            priorityClass = "bg-red-100 text-red-500";
+        }
+        else if (issue.priority === "MEDIUM") {
+            priorityClass = "bg-yellow-100 text-yellow-600";
+        }
+        else {
+            priorityClass = "bg-gray-200 text-gray-500";
+        }
+
+        // card design
         card.innerHTML = `
 
 <div class="flex justify-between items-center mb-3">
