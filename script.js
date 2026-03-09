@@ -91,14 +91,14 @@ function displayIssues(issues) {
 </p>
 
 
-<div class="flex gap-2 mb-4">
+<div class="flex gap-2 mb-4 flex-wrap">
 
-  <span class="badge badge-outline badge-error">
-    BUG
+  <span class="badge badge-outline badge-error whitespace-nowrap">
+    ${issue.labels[0]}
   </span>
 
-  <span class="badge badge-outline badge-warning">
-    HELP WANTED
+  <span class="badge badge-outline badge-warning whitespace-nowrap">
+    ${issue.labels[1]}
   </span>
 
 </div>
