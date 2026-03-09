@@ -51,6 +51,15 @@ if (loginBtn) {
 
 }
 
+// search
+async function searchIssues(query){
+
+  const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${query}`);
+  const data = await res.json();
+
+  displayIssues(data.data);
+
+}
 
 // load issues
 
@@ -64,6 +73,7 @@ async function loadIssues() {
   displayIssues(allIssues);
 
 }
+
 
 
 // active tab
@@ -250,6 +260,21 @@ function openIssueModal(issue) {
 
 }
 
+if (searchInput) {
+
+  searchInput.addEventListener("input", function () {
+
+    const query = searchInput.value.trim();
+
+    if (query === "") {
+      displayIssues(allIssues);
+    } else {
+      searchIssues(query);
+    }
+
+  });
+
+}
 
 // load issues
 loadIssues();
